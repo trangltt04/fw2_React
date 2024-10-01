@@ -1,13 +1,25 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import React from "react";
 
 const ProductList = () => {
+  const queryClient = useQueryClient();
   const { isLoading, isError, data, error } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
       const response = await axios.get(`http://localhost:3000/products`);
       return response.data;
+    },
+  });
+
+  const mutation = useMutation({
+    mutationFn: async (id) => {
+      await axios.delete(`http://localhost:3000/products/${id}`);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ["products"],
+      });
     },
   });
 
@@ -19,7 +31,8 @@ const ProductList = () => {
       {data.map((product) => (
         <div key={product.id}>
           {product.name} - {product.price}
-          <button>Xoa</button>
+          <button onClick={() => mutation.mutate(product.id)}>Xoa</button>
+          <button>Update</button>
         </div>
       ))}
     </div>

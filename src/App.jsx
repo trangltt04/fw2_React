@@ -26,24 +26,7 @@ function App() {
   //   })();
   // }, []);
 
-  // const onHandleChange = (e) => {
-  //   const { name, value, type, checked } = e.target;
-  //   const newProduct = {
-  //     ...product,
-  //     [name]: type == "checkbox" ? checked : value,
-  //   };
-  //   // computed property name
-  //   setProduct(newProduct);
-  // };
-  // const onHandleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const response = await axios.post(
-  //     `http://localhost:3000/products`,
-  //     product
-  //   );
-
-  //   setProducts([...products, response.data]);
-  // };
+  //
 
   // if (isLoading) return <div>Loading...</div>;
   // if (error) return <div>{error.message}</div>;
