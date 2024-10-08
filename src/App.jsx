@@ -1,8 +1,6 @@
 import { Route, Routes } from "react-router-dom";
-import ProductAdd from "./components/ProductAdd";
-import ProductEdit from "./components/ProductEdit";
-import ProductList from "./components/ProductList";
 import AdminLayout from "./layouts/AdminLayout";
+import AddProduct from "./pages/AddProduct";
 import Dashboard from "./pages/Dashboard";
 import ProductManagement from "./pages/ProductManagement";
 
@@ -17,6 +15,7 @@ function App() {
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="products" element={<ProductManagement />} />
+          <Route path="products/add" element={<AddProduct />} />
         </Route>
       </Routes>
     </>
