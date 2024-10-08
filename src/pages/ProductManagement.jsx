@@ -1,36 +1,50 @@
 import React from "react";
-import { Space, Table, Tag } from "antd";
+import { Image, Skeleton, Table, Tag } from "antd";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 const columns = [
   {
-    title: "Ten san pham",
+    title: "Tên sản phẩm",
     dataIndex: "name",
     key: "name",
     render: (text) => <a>{text}</a>,
   },
   {
-    title: "Gia san pham",
+    title: "Giá sản phẩm",
     dataIndex: "price",
     key: "price",
   },
   {
-    title: "Anh san pham",
+    title: "Ảnh sản phẩm",
     dataIndex: "imageUrl",
     key: "imageUrl",
+    render: (_, item) => {
+      return (
+        <>
+          <Image width={50} src={item.imageUrl} />
+        </>
+      );
+    },
   },
   {
-    title: "Tinh trang",
+    title: "Tình trạng",
     key: "available",
     dataIndex: "available",
+    render: (_, item) => {
+      return item.available ? (
+        <Tag color="green">Còn hàng</Tag>
+      ) : (
+        <Tag color="red">Hết hàng</Tag>
+      );
+    },
   },
   {
-    title: "Danh muc",
+    title: "Danh mục",
     key: "category",
     dataIndex: "category",
   },
   {
-    title: "Hanh dong",
+    title: "Hành động",
     key: "action",
   },
 ];
@@ -43,11 +57,17 @@ const ProductManagement = () => {
       return response.data.map((product) => ({ ...product, key: product.id }));
     },
   });
+
   return (
     <>
       <h1>Product Management</h1>
-      <Table columns={columns} dataSource={data} />
+      {isLoading ? (
+        <Skeleton active />
+      ) : (
+        <Table columns={columns} dataSource={data} />
+      )}
     </>
   );
 };
+
 export default ProductManagement;

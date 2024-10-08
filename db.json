@@ -57,6 +57,33 @@
       "description": "aaaaaa",
       "category": "2",
       "id": 8
+    },
+    {
+      "name": "New Product 100",
+      "price": "100",
+      "imageUrl": "https://picsum.photos/500/300",
+      "available": true,
+      "description": "abcd",
+      "category": "2",
+      "id": 11
+    },
+    {
+      "name": "New Product",
+      "price": "200",
+      "imageUrl": "https://picsum.photos/500/300",
+      "available": true,
+      "description": "abcd",
+      "category": "2",
+      "id": 11
+    },
+    {
+      "name": "New Product",
+      "price": "300",
+      "imageUrl": "https://picsum.photos/500/300",
+      "available": true,
+      "description": "abcd",
+      "category": "2",
+      "id": 11
     }
   ]
 }
