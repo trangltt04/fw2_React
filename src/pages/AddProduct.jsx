@@ -1,11 +1,22 @@
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Form, Input, InputNumber, Layout, Select, Switch } from "antd";
+import {
+  Button,
+  Form,
+  Input,
+  InputNumber,
+  Layout,
+  Select,
+  Switch,
+  Upload,
+} from "antd";
 import TextArea from "antd/es/input/TextArea";
+import PlusOutlined from "@ant-design/icons";
 
 const AddProduct = () => {
+  const [imageUrl, setImageUrl] = useState("");
   const navigate = useNavigate();
   const { mutate } = useMutation({
     mutationFn: async (product) => {
@@ -15,8 +26,22 @@ const AddProduct = () => {
       navigate("/admin/products");
     },
   });
+
+  const normFile = (e) => {
+    if (Array.isArray(e)) {
+      return e;
+    }
+    return e?.fileList;
+  };
+
+  const onUploadChange = (info) => {
+    if (info.file.status == "done") {
+      setImageUrl(info.file.response.secure_url);
+    }
+  };
+
   const onFinish = (values) => {
-    mutate(values);
+    mutate({ ...values, imageUrl });
   };
   return (
     <div>
@@ -55,16 +80,33 @@ const AddProduct = () => {
         </Form.Item>
 
         <Form.Item
-          label="Anh san pham"
-          name="imageUrl"
-          rules={[
-            {
-              required: true,
-              message: "Vui long nhap anh san pham",
-            },
-          ]}
+          label="Upload"
+          valuePropName="fileList"
+          getValueFromEvent={normFile}
         >
-          <Input />
+          <Upload
+            action="https://api.cloudinary.com/v1_1/dm0opoxko/image/upload"
+            listType="picture-card"
+            data={{ upload_preset: "upload_image" }}
+            onChange={onUploadChange}
+          >
+            <button
+              style={{
+                border: 0,
+                background: "none",
+              }}
+              type="button"
+            >
+              <PlusOutlined />
+              <div
+                style={{
+                  marginTop: 8,
+                }}
+              >
+                Upload
+              </div>
+            </button>
+          </Upload>
         </Form.Item>
 
         <Form.Item label="Trang thai" name="available" initialValue={false}>

@@ -16,6 +16,7 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path="products" element={<ProductManagement />} />
           <Route path="products/add" element={<AddProduct />} />
+          {/* <Route path="register" element={<register />} /> */}
         </Route>
       </Routes>
     </>

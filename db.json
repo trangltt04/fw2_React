@@ -1,57 +1,6 @@
 {
   "products": [
     {
-      "id": 4,
-      "name": "Product 4",
-      "price": 49.99,
-      "imageUrl": "http://example.com/product4.jpg",
-      "available": true,
-      "description": "Description for product 4"
-    },
-    {
-      "id": 5,
-      "name": "Product 5",
-      "price": 59.99,
-      "imageUrl": "http://example.com/product5.jpg",
-      "available": false,
-      "description": "Description for product 5"
-    },
-    {
-      "id": 6,
-      "name": "Product 6",
-      "price": 69.99,
-      "imageUrl": "http://example.com/product6.jpg",
-      "available": true,
-      "description": "Description for product 6"
-    },
-    {
-      "id": 7,
-      "name": "Product 7",
-      "price": 79.99,
-      "imageUrl": "http://example.com/product7.jpg",
-      "pictureUrl": "http://example.com/product7.jpg",
-      "description": "Description for product 7",
-      "available": true
-    },
-    {
-      "name": "iPhone 12prm",
-      "price": "124.500",
-      "imageUrl": "http://example.com/product1.jpg",
-      "available": true,
-      "description": "aaaaaa",
-      "category": "2",
-      "id": 8
-    },
-    {
-      "name": "New Product 100",
-      "price": "100",
-      "imageUrl": "https://picsum.photos/500/300",
-      "available": true,
-      "description": "abcd",
-      "category": "2",
-      "id": 11
-    },
-    {
       "name": "New Product",
       "price": "200",
       "imageUrl": "https://picsum.photos/500/300",
@@ -77,6 +26,24 @@
       "description": "bbbbbbbb",
       "category": "cate1",
       "id": 13
+    },
+    {
+      "name": "product new 2024",
+      "price": 456,
+      "available": true,
+      "description": "abcde",
+      "category": "cate1",
+      "imageUrl": "https://res.cloudinary.com/dm0opoxko/image/upload/v1728555030/gdcskye4rcdrpfa5wiro.jpg",
+      "id": 14
+    },
+    {
+      "name": "product new 2025",
+      "price": 789,
+      "available": false,
+      "description": "chua co mo ta",
+      "category": "cate2",
+      "imageUrl": "https://res.cloudinary.com/dm0opoxko/image/upload/v1728555160/w0pm3jqjyeatzpp75a4t.jpg",
+      "id": 15
     }
   ]
 }
